@@ -1,0 +1,282 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --color-primary: #DC4A00;
+    --color-white: #F5F2EE;
+    --color-black: #242220;
+    --color-muted: #625A53;
+    --color-border: #DED5CD;
+}
+
+@property --bga-14-p1x {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 16%;
+}
+
+@property --bga-14-p1y {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 22%;
+}
+
+@property --bga-14-p2x {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 82%;
+}
+
+@property --bga-14-p2y {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 18%;
+}
+
+@property --bga-14-p3x {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 50%;
+}
+
+@property --bga-14-p3y {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 78%;
+}
+
+@property --bga-14-p4x {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 88%;
+}
+
+@property --bga-14-p4y {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 72%;
+}
+
+@property --bga-14-p5x {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 30%;
+}
+
+@property --bga-14-p5y {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 52%;
+}
+
+.bga-14,
+.bga-14 *,
+.bga-14 *::before,
+.bga-14 *::after {
+    box-sizing: border-box;
+}
+
+.bga-14 {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+
+    position: relative;
+    isolation: isolate;
+
+    background: var(--color-white);
+    color: var(--color-black);
+
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.bga-14__mesh {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    scale: 1.18;
+
+    filter: blur(52px) saturate(1.28);
+
+    background:
+        radial-gradient(
+            42% 52% at var(--bga-14-p1x) var(--bga-14-p1y),
+            var(--color-primary),
+            transparent 62%
+        ),
+        radial-gradient(
+            46% 44% at var(--bga-14-p2x) var(--bga-14-p2y),
+            #B83E08,
+            transparent 60%
+        ),
+        radial-gradient(
+            52% 50% at var(--bga-14-p3x) var(--bga-14-p3y),
+            #E87835,
+            transparent 62%
+        ),
+        radial-gradient(
+            38% 42% at var(--bga-14-p4x) var(--bga-14-p4y),
+            #F5F2EE,
+            transparent 58%
+        ),
+        radial-gradient(
+            44% 46% at var(--bga-14-p5x) var(--bga-14-p5y),
+            #A93600,
+            transparent 60%
+        ),
+        var(--color-white);
+
+    animation: bga-14-mesh 60s cubic-bezier(.45, 0, .55, 1)
+        infinite alternate;
+}
+
+@keyframes bga-14-mesh {
+    to {
+        --bga-14-p1x: 34%;
+        --bga-14-p1y: 56%;
+
+        --bga-14-p2x: 62%;
+        --bga-14-p2y: 34%;
+
+        --bga-14-p3x: 28%;
+        --bga-14-p3y: 62%;
+
+        --bga-14-p4x: 66%;
+        --bga-14-p4y: 86%;
+
+        --bga-14-p5x: 56%;
+        --bga-14-p5y: 24%;
+    }
+}
+
+.bga-14__grain {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    pointer-events: none;
+    opacity: .12;
+    mix-blend-mode: overlay;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)'/%3E%3C/svg%3E");
+
+    background-size: 180px 180px;
+}
+
+.bga-14__stage {
+    position: relative;
+    z-index: 1;
+
+    min-height: 100vh;
+    min-height: 100svh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 28px;
+
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+
+.converted-card,
+#formConversor {
+    width: 100%;
+    max-width: 600px;
+}
+
+.converted-card {
+    background: rgb(245 242 238 / 82%);
+    border: 1px solid rgb(255 255 255 / 70%);
+    border-radius: 20px;
+
+    box-shadow: 0 12px 36px rgb(36 34 32 / 10%);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.converted-card h1 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 750;
+    letter-spacing: -0.04em;
+}
+
+.converted-card p {
+    color: var(--color-muted);
+}
+
+#formConversor {
+    background: rgb(245 242 238 / 88%);
+    border: 1px solid rgb(255 255 255 / 75%);
+    border-radius: 20px;
+
+    box-shadow: 0 12px 36px rgb(36 34 32 / 10%);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+#formConversor label {
+    color: var(--color-black);
+}
+
+#formConversor input {
+    width: 100%;
+    min-height: 44px;
+
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+
+    background: #FFFFFF;
+    color: var(--color-black);
+}
+
+#formConversor input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgb(220 74 0 / 15%);
+}
+
+#formConversor p {
+    color: var(--color-muted);
+}
+
+#btnConvertir {
+    width: 100%;
+    min-height: 46px;
+
+    color: var(--color-white);
+    background: var(--color-primary);
+
+    border: 1px solid var(--color-primary);
+    border-radius: 10px;
+
+    font-weight: 650;
+
+    transition:
+        background-color .2s,
+        transform .2s;
+}
+
+#btnConvertir:hover {
+    color: #FFFFFF;
+    background: #B83E08;
+    border-color: #B83E08;
+
+    transform: translateY(-1px);
+}
+
+#btnConvertir:focus-visible {
+    outline: 3px solid rgb(220 74 0 / 35%);
+    outline-offset: 3px;
+}
+
+#formConversor h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
