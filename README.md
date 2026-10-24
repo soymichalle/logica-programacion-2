@@ -2,6 +2,10 @@
 
 Proyecto desarrollado en JavaScript para convertir temperaturas de grados Celsius a Fahrenheit y Kelvin.
 
+# Lanzado en:
+
+https://conversor-de-temperaturas-mich.netlify.app
+
 ## Funcionalidades
 
 - Ingresar una temperatura en grados Celsius.
